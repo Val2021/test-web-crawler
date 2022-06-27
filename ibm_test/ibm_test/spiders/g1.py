@@ -1,16 +1,45 @@
+
+
 import scrapy
+
+import sqlalchemy.orm as _orm
+import sqlalchemy as _sql
+
+from ibm_test.db_interfaces.interfaces import Postgres
+from ibm_test.models.models import URL
+
+postgres = Postgres(
+    session =_orm.sessionmaker(
+        autocommit=False,
+        autoflush=False,
+        bind =_sql.create_engine("postgresql+psycopg2://ibm-postgres:ibm2022@postgres:5432/postgres")
+    ),
+    model=URL
+)
+
 
 class G1Spider(scrapy.Spider):
     name = 'g1'
     allowed_domains = ['g1.globo.com']
     start_urls = ['http://g1.globo.com/']
 
+    def start_requests(self):
+        for url in self.start_urls:
+            yield scrapy.Request(url, self.parse)
+
     def parse(self, response):
+        #TODO: Trocar o visited da url que gerou o response para True e Salvar
         urls = response.xpath("//a/@href").getall()
+        self._save_urls(urls)
+
+    
+    def _save_urls(self, urls:list) -> None:
         for url in urls:
-            yield{
-                "url":url
-            }
-       
+            url_model = URL()
+            url_model.url = url
+            url_model.depth = 1
+            url_model.visited = False
+            postgres.save(url_model)
+
   
 
