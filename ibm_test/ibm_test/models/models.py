@@ -1,8 +1,9 @@
+from sqlalchemy import Boolean, Column, Integer, String
 
-from sqlalchemy import Column, Integer, String,Boolean
 from ibm_test.adapters.db import Base
 
 metadata = Base.metadata
+
 
 class URL(Base):
     __tablename__ = "urls"
@@ -11,6 +12,6 @@ class URL(Base):
     url = Column(String(250))
     depth = Column(Integer)
     visited = Column(Boolean)
-    
+
     def __repr__(self) -> str:
         return f"[{self.id},{self.url},{self.depth},{self.visited}]"
