@@ -1,4 +1,4 @@
-from xmlrpc.client import Boolean
+
 from sqlalchemy import Column, Integer, String,Boolean
 from ibm_test.adapters.db import Base
 
@@ -12,3 +12,5 @@ class URL(Base):
     depth = Column(Integer)
     visited = Column(Boolean)
     
+    def __repr__(self) -> str:
+        return f"[{self.id},{self.url},{self.depth},{self.visited}]"
