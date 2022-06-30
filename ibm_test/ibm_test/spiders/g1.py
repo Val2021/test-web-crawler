@@ -25,17 +25,26 @@ class G1Spider(scrapy.Spider):
     def start_requests(self):
         self.start_urls = postgres.get_url_visited()
         for url in self.start_urls:
-            yield scrapy.Request(url.url, self.parse)
+            #print("request",url)
+            yield scrapy.Request(url.url, callback=self.parse)
 
     def parse(self, response):
+        print("linkurls",response)
         # TODO: Trocar o visited da url que gerou o response para True e Salvar
         url = response.xpath("//a/@href").get()
+        print("print",url)
         all_url = postgres.get_all_url()
         for link in all_url:
             if link.url == url and link.visited == False:
                 link.visited = True
+                postgres.save(link)
         urls = response.xpath("//a/@href").getall()
         self._save_urls(urls)
+        
+            
+       
+    
+       
 
     def _save_urls(self, urls: list) -> None:
         for url in urls:

@@ -1,10 +1,18 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+__pycache__/*
+*.__pycache__/
+/__pycache__/
+*__pycache__*
 *.py[cod]
 *$py.class
+.cpython-38.pyc
 
 # C extensions
 *.so
+
+# python extensions
+*.pyc
 
 # Distribution / packaging
 .Python
@@ -130,3 +138,4 @@ dmypy.json
 
 /.idea/
 Makefile
+*__pycache__*

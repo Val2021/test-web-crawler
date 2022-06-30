@@ -3,11 +3,17 @@ from ibm_test.models.models import URL, Base
 MOCK = [
     URL(id=1, url="https://g1.globo.com/", depth=1, visited=False),
     URL(
-        id=1,
+        id=2,
         url="https://g1.globo.com/economia/noticia/2022/06/27/conselho-da-petrobras-elege-caio-mario-paes-de-andrade-como-novo-presidente.ghtml",
         depth=2,
-        visited=True,
+        visited=False,
     ),
+    URL(
+        id=3,
+        url="https://g1.globo.com/tudo-sobre/petrobras/",
+        depth=3,
+        visited=False,
+    )
 ]
 
 
