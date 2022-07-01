@@ -35,7 +35,7 @@ The version of docker used for development was Docker 20.10.12
 
 ## 🚀 Deploy
     Docker
- 
+
 ## 🚀 Cloud Application
     The application was also deployed on Google IBM Cloud
     The application can be accessed at:

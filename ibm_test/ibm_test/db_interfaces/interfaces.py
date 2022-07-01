@@ -13,7 +13,7 @@ MOCK = [
         url="https://g1.globo.com/tudo-sobre/petrobras/",
         depth=3,
         visited=False,
-    )
+    ),
 ]
 
 
