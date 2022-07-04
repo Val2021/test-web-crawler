@@ -52,7 +52,7 @@ class Postgres:
                 if "visited" in attributes.keys():
                     url.visited = attributes["visited"]
                 return True
-        return False
+        return url
         # self.query().filter_by(id=id).update(attributes)
         # self.session.commit()
         # return self.query().filter_by(id=id).first()

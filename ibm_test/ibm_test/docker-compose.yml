@@ -1,0 +1,27 @@
+version: '2'
+services:
+    ibm_test:
+        build:
+            context: ./ibm_test/
+            dockerfile: Dockerfile
+        restart: on-failure
+        volumes:
+            - './ibm_test/api:/usr/src/app'
+        ports:
+            - "8000:8000"
+        stdin_open: true
+        tty: true
+        depends_on:
+            - postgres
+
+    postgres:
+        build:
+            context: ./ibm_test/postgres
+            dockerfile: Dockerfile
+        command: postgres -c 'shared_buffers=256MB' -c 'max_connections=250' -c 'shared_preload_libraries=pg_stat_statements' -c 'pg_stat_statements.max = 10000' -c 'pg_stat_statements.track=all'
+        ports:
+             - "5432:5432"
+        environment:
+            - POSTGRES_USER=ibm-postgres
+            - POSTGRES_PASSWORD=ibm2022
+            - POSTGRES_DB=postgres
