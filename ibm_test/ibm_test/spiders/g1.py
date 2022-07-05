@@ -30,7 +30,6 @@ class G1Spider(scrapy.Spider):
             )
 
     def parse(self, response, url_model):
-        # url_model.visited = True
         postgres.update_url(url_model.id, {"visited": True})
         urls = response.xpath("//a/@href").getall()
         self._save_urls(urls)

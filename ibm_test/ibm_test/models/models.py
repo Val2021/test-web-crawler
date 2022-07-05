@@ -1,6 +1,9 @@
-from sqlalchemy import Boolean, Column, Integer, String
+import sys
 
-from ibm_test.adapters.db import Base
+sys.path.append("/home/val/test-web-crawler/ibm_test/ibm_test")
+from adapters.db import Base
+from sqlalchemy import Column
+from sqlalchemy.sql.sqltypes import Boolean, Integer, String
 
 metadata = Base.metadata
 

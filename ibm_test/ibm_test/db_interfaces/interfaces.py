@@ -1,16 +1,16 @@
 from ibm_test.models.models import URL, Base
 
 MOCK = [
-    URL(id=1, url="https://g1.globo.com/", depth=1, visited=False),
+    URL(id=1, url="https://www.ibm.com/br-pt/", depth=1, visited=False),
     URL(
         id=2,
-        url="https://g1.globo.com/economia/noticia/2022/06/27/conselho-da-petrobras-elege-caio-mario-paes-de-andrade-como-novo-presidente.ghtml",
+        url="https://www.ibm.com/lets-create/br-pt/?lnk=hpmlc",
         depth=2,
         visited=False,
     ),
     URL(
         id=3,
-        url="https://g1.globo.com/tudo-sobre/petrobras/",
+        url="https://www.ibm.com/br-pt/analytics/data-fabric",
         depth=3,
         visited=False,
     ),
@@ -52,7 +52,7 @@ class Postgres:
                 if "visited" in attributes.keys():
                     url.visited = attributes["visited"]
                 return True
-        return url
+        return False
         # self.query().filter_by(id=id).update(attributes)
         # self.session.commit()
         # return self.query().filter_by(id=id).first()

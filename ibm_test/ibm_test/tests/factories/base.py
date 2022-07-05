@@ -1,6 +1,6 @@
 from typing import Generic, TypeVar
 
-import factory
+from faker import factory
 
 T = TypeVar("T")
 
