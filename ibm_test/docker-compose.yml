@@ -6,9 +6,9 @@ services:
             dockerfile: Dockerfile
         restart: on-failure
         volumes:
-            - './ibm_test/api:/usr/src/app'
+            - './ibm_test:/usr/src/app'
         ports:
-            - "8000:8000"
+            - "8002:8000"
         stdin_open: true
         tty: true
         depends_on:

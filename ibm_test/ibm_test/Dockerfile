@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 RUN python -m pip install --upgrade setuptools
 
 #add and install requirements
-COPY ./requirements.txt /usr/src/app/requirements.txt
+COPY requirements.txt /usr/src/app/requirements.txt
 
 #COPY shared archives
 RUN pip install -r requirements.txt
@@ -22,4 +22,9 @@ RUN pip install -r requirements.txt
 COPY . /usr/src/app
 
 # # run server
-# ENTRYPOINT uvicorn main:app --host 0.0.0.0 --port 8000
+# ENTRYPOINT scrapy crawl g1  --host 0.0.0.0 --port 8000
+
+EXPOSE 80
+
+#CMD ["scrapy","crawl", "estate", "--host", "0.0.0.0", "--port", "8000"]
+CMD [ "python3", "./go-spider.py" , "--host", "0.0.0.0", "--port", "8000"]

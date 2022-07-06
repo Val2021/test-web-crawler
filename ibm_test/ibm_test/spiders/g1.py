@@ -1,9 +1,11 @@
 import scrapy
 import sqlalchemy as _sql
 import sqlalchemy.orm as _orm
+import sys
 
-from ibm_test.db_interfaces.interfaces import Postgres
-from ibm_test.models.models import URL
+sys.path.append("/home/val/test-web-crawler/ibm_test/ibm_test")
+from db_interfaces.interfaces import Postgres
+from models.models import URL
 
 postgres = Postgres(
     session=_orm.sessionmaker(

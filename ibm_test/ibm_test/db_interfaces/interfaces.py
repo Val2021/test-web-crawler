@@ -1,4 +1,4 @@
-from ibm_test.models.models import URL, Base
+from models.models import URL, Base
 
 MOCK = [
     URL(id=1, url="https://www.ibm.com/br-pt/", depth=1, visited=False),
