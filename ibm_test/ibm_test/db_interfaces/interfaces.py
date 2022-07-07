@@ -1,19 +1,7 @@
 from models.models import URL, Base
 
 MOCK = [
-    URL(id=1, url="https://www.ibm.com/br-pt/", depth=1, visited=False),
-    URL(
-        id=2,
-        url="https://www.ibm.com/lets-create/br-pt/?lnk=hpmlc",
-        depth=2,
-        visited=False,
-    ),
-    URL(
-        id=3,
-        url="https://www.ibm.com/br-pt/analytics/data-fabric",
-        depth=3,
-        visited=False,
-    ),
+    URL(id=1, url="https://www.ibm.com/br-pt/", depth=0, visited=False),
 ]
 
 

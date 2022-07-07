@@ -21,10 +21,5 @@ RUN pip install -r requirements.txt
 # add app
 COPY . /usr/src/app
 
-# # run server
-# ENTRYPOINT scrapy crawl g1  --host 0.0.0.0 --port 8000
 
-EXPOSE 80
-
-#CMD ["scrapy","crawl", "estate", "--host", "0.0.0.0", "--port", "8000"]
-CMD [ "python3", "./go-spider.py" , "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ./go-spider.py

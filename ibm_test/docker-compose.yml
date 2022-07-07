@@ -2,11 +2,11 @@ version: '2'
 services:
     ibm_test:
         build:
-            context: ./ibm_test/
+            context: ./ibm_test
             dockerfile: Dockerfile
         restart: on-failure
         volumes:
-            - './ibm_test:/usr/src/app'
+            - '/ibm_test:/usr/src/app'
         ports:
             - "8002:8000"
         stdin_open: true
@@ -24,4 +24,4 @@ services:
         environment:
             - POSTGRES_USER=ibm-postgres
             - POSTGRES_PASSWORD=ibm2022
-            - POSTGRES_DB=postgres
+            - POSTGRES_DB=ibmDB
