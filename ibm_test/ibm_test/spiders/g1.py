@@ -7,13 +7,14 @@ import sqlalchemy.orm as _orm
 sys.path.append("/home/val/test-web-crawler/ibm_test/ibm_test")
 from db_interfaces.interfaces import Postgres
 from models.models import URL
+from adapters.db import DATABASE_URL
 
 postgres = Postgres(
     session=_orm.sessionmaker(
         autocommit=False,
         autoflush=False,
         bind=_sql.create_engine(
-            "postgresql+psycopg2://ibm-postgres:ibm2022@postgres:5432/postgres"
+            DATABASE_URL
         ),
     ),
     model=URL,
