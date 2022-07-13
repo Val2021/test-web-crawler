@@ -21,4 +21,5 @@ RUN pip install -r requirements.txt
 # add app
 COPY . /usr/src/app
 
-ENTRYPOINT python3 /usr/src/app/go-spider.py
+
+# run app

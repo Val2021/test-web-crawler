@@ -4,6 +4,7 @@ services:
         build:
             context: ./ibm_test
             dockerfile: Dockerfile
+        command: bash -c "python3 /usr/src/app/go-spider.py"
         restart: on-failure
         volumes:
             - './ibm_test:/usr/src/app'

@@ -140,3 +140,6 @@ dmypy.json
 /.idea/
 Makefile
 *__pycache__*
+
+#alembic
+*_first_revision.py
