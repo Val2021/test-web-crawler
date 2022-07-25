@@ -26,6 +26,8 @@ The version of docker used for development was Docker 20.10.12
 ### Install project dependencies with the command:
     pip install -r requirements.txt
 
+### Running application
+    docker-compose up --build
 
 ## 🎲 Running the back end (server)
     ...

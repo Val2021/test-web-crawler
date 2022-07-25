@@ -52,7 +52,7 @@ class G1Spider(scrapy.Spider):
 
     def _save_urls(self, urls: list, depth: int) -> None:
         for url in urls:
-            if url.startswith("https"):
+            if not list(postgres.get_url_by_url(url)) and url.startswith("https"):
                 url_model = URL()
                 url_model.url = url
                 url_model.depth = depth
