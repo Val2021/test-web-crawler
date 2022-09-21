@@ -15,6 +15,7 @@ The version of docker used for development was Docker 20.10.12
 ### Creating virtual environment
     python3 -m venv virtual_environment_name
 
+
 ### Activate virtual environment:
 
 #### Linux

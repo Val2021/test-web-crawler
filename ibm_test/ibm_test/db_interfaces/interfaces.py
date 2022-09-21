@@ -22,9 +22,6 @@ class Postgres:
         self.session.query(self.model).filter(URL.id == id).update(attributes)
         self.session.commit()
         return self.session.query(self.model).filter(URL.id == id).first()
-        # self.session.query().filter_by(id=id).update(attributes)
-        # self.session.commit()
-        # return self.query().filter_by(id=id).first()
 
     def get_url_by_url(self, url: str):
         return self.session.query(self.model).filter_by(url=url)

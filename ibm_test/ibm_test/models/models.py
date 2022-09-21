@@ -1,6 +1,9 @@
+import os
 import sys
 
-sys.path.append("/home/val/test-web-crawler/ibm_test/ibm_test")
+cwd = os.getcwd()
+cwd = cwd.replace("/spiders", "")
+sys.path.append(cwd)
 from adapters.db import Base
 from sqlalchemy import Column
 from sqlalchemy.sql.sqltypes import Boolean, Integer, Text
@@ -12,7 +15,7 @@ class URL(Base):
     __tablename__ = "urls"
 
     id = Column(Integer, primary_key=True, index=True)
-    url = Column(Text())
+    url = Column(Text(500))
     depth = Column(Integer)
     visited = Column(Boolean)
 
