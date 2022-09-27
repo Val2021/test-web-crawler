@@ -138,7 +138,6 @@ dmypy.json
 .pyre/
 
 /.idea/
-Makefile
 *__pycache__*
 
 #alembic
