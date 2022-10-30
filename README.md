@@ -12,23 +12,29 @@ The version of docker used for development was Docker 20.10.12
 ### Cloning the repository
     https://github.com/Val2021/test-web-crawler.git
 
-### Creating virtual environment
+
+### Running application (Linux):
+    make
+
+### Creating virtual environment (Windows):
     python3 -m venv virtual_environment_name
 
+### Activate virtual environment  (Windows):
 
-### Activate virtual environment:
-
-#### Linux
-    source virtual_environment_name/bin/activate
-
-#### Windows
     virtual_environment_name\Scripts\ActivateDependencies
 
-### Install project dependencies with the command:
+### Install project dependencies with the command (Windows):
     pip install -r requirements.txt
 
-### Running application
+### Running application (Windows):
     docker-compose up --build
+
+### Running tests:
+    pytest
+
+### Running lint:
+    pre-commit run -a
+    
 
 ## 🎲 Running the back end (server)
     ...
@@ -40,9 +46,6 @@ The version of docker used for development was Docker 20.10.12
     Docker
 
 ## 🚀 Cloud Application
-    The application was also deployed on Google IBM Cloud
-    The application can be accessed at:
-    ...
 
 ## Contributors:
 <table>

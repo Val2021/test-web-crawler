@@ -5,13 +5,13 @@ BIN=$(VENV_NAME)/bin
 VENV_ACTIVATE=$(VENV_NAME)/bin/activate
 PYTHON=${VENV_NAME}/bin/python3
 
-all: test lint build
+all: env dev build
 
-test:
-	${PYTHON} -m pytest
+env:
+	python3 -m ${VENV_NAME} ${VENV_NAME}
 
-lint:
-	${BIN}/pre-commit run -a
+dev:
+	${BIN}/pip install -r requirements.txt
 
 build:
 	cd ibm_test && docker-compose up -d  --build
